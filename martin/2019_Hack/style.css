@@ -11,6 +11,8 @@ a {
     list-style: none;
     padding: 0;
     margin: 0 0 40px 0;
+    position: relative;
+    left: 24%;
   }
   .tab-group:after {
     content: "";
@@ -24,7 +26,7 @@ a {
     background: rgba(160, 179, 176, 0.25);
     color: #a0b3b0;
     font-size: 20px;
-    float: left;
+    float: center;
     width: 50%;
     text-align: center;
     cursor: pointer;
