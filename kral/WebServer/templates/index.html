@@ -114,6 +114,18 @@ body{
                     console.log("Log");
                     //Load JSON and Image, update DOM
                     }, 3000);
+                    fetch('http://10.10.10.222:5000/isSPZ')
+  .then(response => {
+    return response.json()
+  })
+  .then(data => {
+    // Work with JSON data here
+    console.log(data)
+  })
+  .catch(err => {
+    // Do something for an error here
+  })
+
                 </script>
 
                 <script type="text/javascript">

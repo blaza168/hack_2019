@@ -4,8 +4,8 @@ import shutil
 ipTong = "http://10.10.10.241:5000/"
 ipTong2 = "http://10.10.10.241:5000/" #jina IP
 ipAi = "http://10.10.10.128:5555/process"
-tongLed = "10.10.10.155/1" #IP rasp 1
-tongLed2 = "10.10.10.155/2" #IP rasp 2
+tongLed = "10.10.10.155/0" #IP rasp 1
+tongLed2 = "10.10.10.155/1" #IP rasp 2
 
 while(True):
     r = requests.get(ipTong, stream=True)
@@ -32,8 +32,8 @@ while(True):
         tong2 = response
 
     if tong1 > tong2:
-        r = requests.get(tongLed)
+        r = requests.get(tongLed, verify=False, timeout=1)
     else:
-        r = requests.get(tongLed2)
+        r = requests.get(tongLed2, verify=False, timeout=1)
 
 
