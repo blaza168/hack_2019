@@ -2,27 +2,25 @@
 <html lang = "en">
 <head>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="try.css">
     <title>Graph</title>
     <meta charset="UTF-8">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
-    <script src="particles.js"></script>
-    <script src="app.js"></script>
 </head>
 <body onload="displayLineChart();">
-   <div id="particles-js"></div>
 
-    <ul class="tab-group">
-        <li class="tab active"><a href="index.html">Graph</a></li>
-        <li class="tab"><a href="index2.html">Live Cams</a></li>
-        <li class="tab"><a href="index3.html">Licence Plate</a></li>
-      </ul>
-
-      <div class = "box">
-            <canvas id = "lineChart" height="450" width="800"></canvas>
-        </div>
-      
-
-
+        <div id="particles-js">
+            <div id="content">
+                    <ul class="tab-group">
+                            <li class="tab active"><a href="index.html">Graph</a></li>
+                            <li class="tab"><a href="index2.html">Live Cams</a></li>
+                            <li class="tab"><a href="index3.html">Licence Plate</a></li>
+                          </ul>
+                    
+                          <div class = "box">
+                                <canvas id = "lineChart" height="450" width="800"></canvas>
+                            </div>
+                            </div>
 
       <script language="JavaScript">
             function displayLineChart(){
@@ -33,19 +31,19 @@
                             label: "First dataset",
                             fillColor: "rgba(220,220,220,0.2)",
                             strokeColor: "rgba(220,220,220,1)",
-                            pointColor: "rgba(220,220,220,1)",
-                            pointStrokeColor: "#fff",
-                            pointHighlightFill: "#fff",
-                            pointHighlightStroke: "rgba(220,220,220,1)",
+                            pointColor: "#0d0d0d",
+                            pointStrokeColor: "#0d0d0d",
+                            pointHighlightFill: "#0d0d0d",
+                            pointHighlightStroke: "black",
                             data: [0]
                         },
                         {
                             label: "Second dataset",
-                            fillColor: "rgba(220,220,220,0.2)",
-                            strokeColor: "rgba(220,220,220,1)",
-                            pointColor: "rgba(220,220,220,1)",
-                            pointStrokeColor: "#fff",
-                            pointHighlightFill: "#fff",
+                            fillColor: "#9c9595",
+                            strokeColor: "#0d0d0d",
+                            pointColor: "#179b77",
+                            pointStrokeColor: "#0d0d0d",
+                            pointHighlightFill: "#0d0d0d",
                             pointHighlightStroke: "rgba(220,220,220,1)",
                             data: [7,4,2,4,9,10,14,2,8,5]
                         }
@@ -56,5 +54,7 @@
                 var lineChart = new Chart(context).Line(data, options);
             }
             </script>
+                       <script type="text/javascript"src="js/particles.min.js"></script>
+                       <script type="text/javascript"src="js/app.js"></script>
 </body>
 </html>
