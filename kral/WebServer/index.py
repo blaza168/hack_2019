@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, render_template, url_for
 
 app = Flask(__name__)
 
@@ -21,9 +21,10 @@ def check():
         return 'ok'
     else:
         return 'none'
-@app.route('/')
+
+@app.route('/', methods=['GET'])
 def index():
-    return "hello"
+    return render_template("index.html")
 
 
 
