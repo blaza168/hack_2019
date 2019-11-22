@@ -1,11 +1,28 @@
 const express = require('express');
 
-const app = express();
+const http = require('http');
 
-const PORT = 5000;
+const fs = require('fs');
 
-app.get('/', function (req, res) {
-   res.send('Hello World!');
+const url = "http://10.10.10.241:5000";
+
+let image;
+
+http.get(url, res => {
+    //res.setEncoding("utf8");
+    res.on("data", data => {
+        console.log(data);
+
+    });
+
+
 });
 
-app.listen(PORT);
+const app = express();
+
+const PORT = 5000
+
+//app.use(require('./routes/index'));
+
+
+//app.listen(PORT);
