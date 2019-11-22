@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <title>Graph</title>
+    <meta charset="UTF-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+    <script src="particles.js"></script>
+    <script src="app.js"></script>
+</head>
+<body onload="displayLineChart();">
+   <div id="particles-js"></div>
+
+    <ul class="tab-group">
+        <li class="tab active"><a href="index.html">Graph</a></li>
+        <li class="tab"><a href="index2.html">Live Cams</a></li>
+        <li class="tab"><a href="index3.html">Licence Plate</a></li>
+      </ul>
+
+      <div class = "box">
+            <canvas id = "lineChart" height="450" width="800"></canvas>
+        </div>
+      
+
+
+
+      <script language="JavaScript">
+            function displayLineChart(){
+                var data = {
+                    labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                    datasets: [
+                        {
+                            label: "First dataset",
+                            fillColor: "rgba(220,220,220,0.2)",
+                            strokeColor: "rgba(220,220,220,1)",
+                            pointColor: "rgba(220,220,220,1)",
+                            pointStrokeColor: "#fff",
+                            pointHighlightFill: "#fff",
+                            pointHighlightStroke: "rgba(220,220,220,1)",
+                            data: [0]
+                        },
+                        {
+                            label: "Second dataset",
+                            fillColor: "rgba(220,220,220,0.2)",
+                            strokeColor: "rgba(220,220,220,1)",
+                            pointColor: "rgba(220,220,220,1)",
+                            pointStrokeColor: "#fff",
+                            pointHighlightFill: "#fff",
+                            pointHighlightStroke: "rgba(220,220,220,1)",
+                            data: [7,4,2,4,9,10,14,2,8,5]
+                        }
+                    ]
+                };
+                var context = document.getElementById("lineChart").getContext("2d");
+                var options = {};
+                var lineChart = new Chart(context).Line(data, options);
+            }
+            </script>
+</body>
+</html>
