@@ -1,5 +1,8 @@
-from flask import Flask, request, Response, jsonify
+from flask import Flask, request, Response
+import requests
 import time
+from threading import Thread
+import subprocess
 import cv2
 import numpy as np
 import tensorflow as tf
@@ -60,9 +63,22 @@ def get_num_cars(nums, boxes, scores, classes):
     print("COUNT: {}".format(count))
     return count
 
+
+def send_img():
+    url = "http://10.10.10.222:5000/save"
+    payload = {
+        'img': open('output.jpg', 'rb')
+    }
+    requests.post(url, files=payload)
+    output = subprocess.check_output(['alpr', 'input.jpg'])
+    if len(output.splitlines()) > 1:
+        requests.post("http://10.10.10.222:5000/spz")
+
+
 @app.route("/test", methods=["GET"])
 def test():
     return Response("OK")
+
 
 @app.route('/process', methods=['POST'])
 def process_img():
@@ -74,6 +90,8 @@ def process_img():
     print("upload")
     upload.save('input.jpg')
     nums, boxes, scores, classes = process('input.jpg')
+    thread = Thread(target=send_img)
+    thread.run()
     return Response(str(get_num_cars(nums, boxes, scores, classes)))
 
 
