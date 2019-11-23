@@ -81,7 +81,7 @@ body{
 #particles-js{
     background-color:#454543;
     background-size: relative;
-    height: 680px;
+    height: 100%;
 }
 
 #content {
@@ -100,12 +100,14 @@ body{
 
 <div id="particles-js">
     <div id="content">
-        <ul class="tab-group">
-            <li class="tab"><a href="/">Graph</a></li>
-            <li class="tab active"><a href="/cams">Live Cams</a></li>
+        <ul style="margin-bottom: 3rem" class="tab-group">
+            <li class="tab active"><a href="/">Live Cams</a></li>
         </ul>
-        <img src="{{ url_for('static', filename = 'blaza1.jpeg') }}" id="img1">
-        <img src="{{ url_for('static', filename = 'blaza2.jpeg') }}" id="img2">
+        <img src="{{ url_for('static', filename = 'blaza1.jpeg') }}" id="img1"height="auto"width="40%">
+        <img src="{{ url_for('static', filename = 'blaza2.jpeg') }}" id="img2"height="auto"width="40%" style="margin-left:1.5rem">
+        <h2 style="margin-left:-67rem">Camera 1</h2>
+        <h2 style="margin-top:-2rem;margin-left:67rem">Camera 2</h2>
+        <input type="text" style="position: absolute; margin-top: -30rem; margin-left: 35rem" value="{{ spz }}" id="plate">
         <div class="box">
             <canvas id="lineChart" height="450" width="800"></canvas>
         </div>
@@ -115,48 +117,11 @@ body{
                 let img1 = document.getElementById('img1');
                 let img2 = document.getElementById('img2');
                     const foo = setInterval(() => {
-                        img1.src = "{{ url_for('static', filename = 'blaza1.jpeg') }}";
-                        img2.src = "{{ url_for('static', filename = 'blaza2.jpeg') }}";
-                        location.reload();
+                     location.reload()
                     }, 3000);
-
-
-
     </script>
 
-    <script type="text/javascript">
-                function displayLineChart(){
-                var data = {
-                    labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-                    datasets: [
-                        {
-                            label: "First dataset",
-                            fillColor: "rgba(220,220,220,0.2)",
-                            strokeColor: "rgba(220,220,220,1)",
-                            pointColor: "#0d0d0d",
-                            pointStrokeColor: "#0d0d0d",
-                            pointHighlightFill: "#0d0d0d",
-                            pointHighlightStroke: "black",
-                            data: [0]
-                        },
-                        {
-                            label: "Second dataset",
-                            fillColor: "#9c9595",
-                            strokeColor: "#0d0d0d",
-                            pointColor: "#179b77",
-                            pointStrokeColor: "#0d0d0d",
-                            pointHighlightFill: "#0d0d0d",
-                            pointHighlightStroke: "rgba(220,220,220,1)",
-                            data: [7,4,2,4,9,10,14,2,8,5]
-                        }
-                    ]
-                };
-                var context = document.getElementById("lineChart").getContext("2d");
-                var options = {};
-                var lineChart = new Chart(context).Line(data, options);
-            }
 
-    </script>
     <script>
                 /* -----------------------------------------------
 /* Author : Vincent Garreau  - vincentgarreau.com

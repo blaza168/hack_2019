@@ -1,11 +1,11 @@
 import requests
 import shutil
 
-ipTong = "http://10.10.10.228:5000/"
-ipTong2 = "http://10.10.10.241:5000/" #jina IP
-ipAi = "http://10.10.10.128:5555/process"
-tongLed = "http://10.10.10.155/1" #IP rasp 1
-tongLed2 = "http://10.10.10.155/0" #IP rasp 2
+ipTong = "http://10.10.9.51:5000/"
+ipTong2 = "http://10.10.9.50:5000/" #jina IP
+ipAi = "http://10.10.9.52:5555/process"
+tongLed = "http://10.10.9.53/0" #IP rasp 1
+tongLed2 = "http://10.10.9.53/1" #IP rasp 2
 
 tong1_less = None
 
