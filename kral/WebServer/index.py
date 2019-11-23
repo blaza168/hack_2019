@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, render_template, jsonify
 
 app = Flask(__name__)
 
@@ -15,15 +15,16 @@ def update():
     data = request.data
     print(data)
 
-@app.route('/isSPZ', methods = ['POST'])
+@app.route('/isSPZ')
 def check():
     if spz:
-        return 'ok'
+        return jsonify('ok')
     else:
-        return 'none'
-@app.route('/')
+        return jsonify('none')
+
+@app.route('/', methods=['GET'])
 def index():
-    return "hello"
+    return render_template("index.html")
 
 
 
