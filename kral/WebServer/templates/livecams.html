@@ -101,34 +101,23 @@ body{
 <div id="particles-js">
     <div id="content">
         <ul class="tab-group">
-            <li class="tab active"><a href="/">Graph</a></li>
-
-            <li class="tab"><a href="/cams">Live Cams</a></li>
+            <li class="tab"><a href="/">Graph</a></li>
+            <li class="tab active"><a href="/cams">Live Cams</a></li>
         </ul>
-        <input type="text" style="margin-top: -120rem; margin-left: 70rem" value="SPZ" id="plate">
+        <img src="{{ url_for('static', filename = 'blaza1.jpeg') }}" id="img1">
+        <img src="{{ url_for('static', filename = 'blaza2.jpeg') }}" id="img2">
         <div class="box">
             <canvas id="lineChart" height="450" width="800"></canvas>
         </div>
 
     </div>
     <script type="text/javascript">
+                let img1 = document.getElementById('img1');
+                let img2 = document.getElementById('img2');
                     const foo = setInterval(() => {
-                    //Load JSON and Image, update DOM
-                    fetch('http://10.10.10.222:5000/isSPZ')
-                        .then(response => {
-                            return response.json()
-                           })
-                        .then(data => {
-                            if(data == 'true'){
-                             clearInterval(foo);
-                             const plate = document.getElementById('plate');
-                             plate.value = "6B7 3PA"
-                             }
-                        })
-                        .catch(err => {
-                        console.log(err);
-                        })
-
+                        img1.src = "{{ url_for('static', filename = 'blaza1.jpeg') }}";
+                        img2.src = "{{ url_for('static', filename = 'blaza2.jpeg') }}";
+                        location.reload();
                     }, 3000);
 
 

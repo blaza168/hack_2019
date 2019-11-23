@@ -1,4 +1,6 @@
 from flask import Flask, request, render_template, jsonify
+import os
+
 global spz
 global counter
 
@@ -13,9 +15,10 @@ def save():
     upload = request.files['img']
     counter += 1
     if counter % 2 == 0:
-        upload.save('blaza2.jpeg')
+        upload.save('./static/blaza2.jpeg')
     else:
-        upload.save('blaza1.jpeg')
+        upload.save('./static/blaza2.jpeg')
+    return "dfs"
 
 @app.route('/spz', methods=['POST'])
 def update():
@@ -34,6 +37,10 @@ def check():
 @app.route('/', methods=['GET'])
 def index():
     return render_template("index.html")
+
+@app.route('/cams', methods=['GET'])
+def cams():
+    return render_template("livecams.html")
 
 
 
