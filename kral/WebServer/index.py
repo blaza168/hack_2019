@@ -6,7 +6,7 @@ global counter
 
 app = Flask(__name__)
 
-spz = False
+spz = True
 counter = 0
 
 @app.route('/save', methods=['POST'])
@@ -17,7 +17,7 @@ def save():
     if counter % 2 == 0:
         upload.save('./static/blaza2.jpeg')
     else:
-        upload.save('./static/blaza2.jpeg')
+        upload.save('./static/blaza1.jpeg')
     return "dfs"
 
 @app.route('/spz', methods=['POST'])
@@ -36,11 +36,14 @@ def check():
 
 @app.route('/', methods=['GET'])
 def index():
-    return render_template("index.html")
+    global spz
+    if spz:
+        spz = "6B7 3PA"
+    else:
+        spz = ""
+    return render_template("livecams.html", spz=spz)
 
-@app.route('/cams', methods=['GET'])
-def cams():
-    return render_template("livecams.html")
+
 
 
 
